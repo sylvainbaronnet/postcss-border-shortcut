@@ -9,6 +9,9 @@ module.exports = postcss.plugin('postcss-border-shortcut', function (opts) {
       var pxRegExp = /^((?!px).)*$/;
 
       if (decl.prop.match(borderRegExp)) {
+
+        if(decl.value === '0') return;
+
         var valueList = postcss.list.space(decl.value);
         var prop = decl.prop;
         var FirstValue = valueList[0];
