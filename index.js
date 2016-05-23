@@ -6,7 +6,7 @@ module.exports = postcss.plugin('postcss-border-shortcut', function (opts) {
   return function (css) {
     css.walkDecls( function (decl) {
 
-      if(decl.value === '0') return;
+      if(decl.value === '0' || decl.prop === 'border-radius') return;
 
       var borderRegExp = /^(?!.*(style|width|color)).*border.*$/;
       var pxRegExp = /^((?!px).)*$/;
